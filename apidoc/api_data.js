@@ -1,0 +1,586 @@
+define({ "api": [
+  {
+    "type": "post",
+    "url": "/api/v1/ecart/create",
+    "title": "create a product",
+    "version": "0.0.1",
+    "group": "Create",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken(Admin) as query parameter, body parameter or as a header)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>This is the name of the product (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "description",
+            "description": "<p>This is the description of the product (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "price",
+            "description": "<p>This is the price of the product (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "quantity",
+            "description": "<p>This is the quantity of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array",
+            "optional": false,
+            "field": "category",
+            "description": "<p>category(tags) array is passed as array</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "url",
+            "optional": false,
+            "field": "image",
+            "description": "<p>url of image</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"prduct saved sucessfully\",\n         \"status\":200\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n         \"error\": true,\n         \"message\":error message that was generated,\n         \"status\": 500,\n         \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/products.js",
+    "groupTitle": "Create",
+    "name": "PostApiV1EcartCreate"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/shop/create",
+    "title": "create a cart",
+    "version": "0.0.1",
+    "group": "Create",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication.(Send authToken(Admin) as query parameter, body parameter or as a header)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>This is the id of the product that is to be added to cart(sent as key value pair in body parameter)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"cart saved sucessfully\",\n         \"status\":200\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n         \"error\": true,\n         \"message\":error message that was generated,\n         \"status\": 500,\n         \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cart.js",
+    "groupTitle": "Create",
+    "name": "PostApiV1ShopCreate"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/ecart/delete/byName/:name",
+    "title": "delete product by name",
+    "version": "0.0.1",
+    "group": "Delete",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>This is the name of the product to be deleted(sent as url parameter)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"deleted\",\n         \"status\":200\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n         \"error\": true,\n         \"message\": id ' ' not found,\n         \"status\": 500,\n         \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/products.js",
+    "groupTitle": "Delete",
+    "name": "PostApiV1EcartDeleteBynameName"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/ecart/delete/:id",
+    "title": "delete a product",
+    "version": "0.0.1",
+    "group": "Delete",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>This is the id of the product to be deleted(sent as url parameter)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"deleted\",\n         \"status\":200\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n         \"error\": true,\n         \"message\": id ' ' not found,\n         \"status\": 500,\n         \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/products.js",
+    "groupTitle": "Delete",
+    "name": "PostApiV1EcartDeleteId"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/shop/delete/:id",
+    "title": "delete a cart",
+    "version": "0.0.1",
+    "group": "Delete",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>This is the id of the cart to be deleted(sent as url parameter)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"cart deleted sucessfully\",\n         \"status\":200\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n         \"error\": true,\n         \"message\":cart with id ' ' not found,\n         \"status\": 500,\n         \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cart.js",
+    "groupTitle": "Delete",
+    "name": "PostApiV1ShopDeleteId"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/shop/deleteFromCart/:id/:itemId",
+    "title": "delete item from a cart",
+    "version": "0.0.1",
+    "group": "Delete",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>This is the id of the cart(cartId)(sent as a url parameter)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "itemId",
+            "description": "<p>This is the id of the product that is to be deleted from cart(sent as a url parameter)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"deleted successfully\",\n         \"status\":200\n         \"data\":{ n: 1, nModified: 1, ok: 1 }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n         \"error\": true,\n         \"message\":error message that was generated,\n         \"status\": 500,\n         \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cart.js",
+    "groupTitle": "Delete",
+    "name": "PostApiV1ShopDeletefromcartIdItemid"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/ecart/edit/:id",
+    "title": "edit product item",
+    "version": "0.0.1",
+    "group": "Edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The product Id must be passed as url parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>This is the name of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "description",
+            "description": "<p>This is the description of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "price",
+            "description": "<p>This is the price of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "quantity",
+            "description": "<p>This is the quantity of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array",
+            "optional": false,
+            "field": "category",
+            "description": "<p>category(tags) array is passed as array</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "url",
+            "optional": false,
+            "field": "image",
+            "description": "<p>url of image</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"successfully modified\",\n         \"status\":200,\n         \"data\":{\n                    Id:\"string\",\n                    name:\"string\",\n                    category:array,\n                    quantity:number,\n                    description:\"string\",\n                    price:number\n                    created:date,\n                    lastUpdated:date,\n                }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "{\n         \"error\": true,\n         \"message\":no change from original data or id not found,\n         \"status\": 404,\n         \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/products.js",
+    "groupTitle": "Edit",
+    "name": "PutApiV1EcartEditId"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/shop/addToCart/:id/:itemId",
+    "title": "add items to cart",
+    "version": "0.0.1",
+    "group": "Edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The cartId must be passed as url parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "itemId",
+            "description": "<p>The Id of products must be passed as url parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"Sucessfully modified\",\n         \"status\":200,\n         \"data\": {\n                    \"itemsId\": object(type=array),\n                    \"_id\": \"string\",\n                    \"cartId\": \"string\",\n                    \"totalItem\": number,\n                    \"totalAmount\": number,\n                    \"lastUpdated\": date\n                }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "{\n         \"error\": true,\n         \"message\":no cart of the id found,\n         \"status\": 404,\n         \"data\": null\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cart.js",
+    "groupTitle": "Edit",
+    "name": "PutApiV1ShopAddtocartIdItemid"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/ecart/list",
+    "title": "view all product detail",
+    "version": "0.0.1",
+    "group": "Read",
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"product Found Sucessfully\",\n         \"status\":200,\n         \"data\":{\n                    Id:\"string\",\n                    name:\"string\",\n                    category:array,\n                    quantity:number,\n                    description:\"string\",\n                    price:number\n                    created:date,\n                    lastUpdated:date,\n                }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n       \"error\": true,\n       \"message\":no product found,\n       \"status\": 200,\n       \"data\": null\n      }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/products.js",
+    "groupTitle": "Read",
+    "name": "GetApiV1EcartList"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/ecart/view/byprice/:price",
+    "title": "view product detail by price",
+    "version": "0.0.1",
+    "group": "Read",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "price",
+            "description": "<p>The price of the product must be passed as url parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"product Found Sucessfully\",\n         \"status\":200,\n         \"data\":{\n                    Id:\"string\",\n                    name:\"string\",\n                    category:array,\n                    quantity:number,\n                    description:\"string\",\n                    price:number\n                    created:date,\n                    lastUpdated:date,\n                }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n       \"error\": true,\n       \"message\":no product with price '' found,\n       \"status\": 200,\n       \"data\": null\n      }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/products.js",
+    "groupTitle": "Read",
+    "name": "GetApiV1EcartViewBypricePrice"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/ecart/view/:name",
+    "title": "view product detail by name",
+    "version": "0.0.1",
+    "group": "Read",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The name of the product must be passed as url parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"product Found Sucessfully\",\n         \"status\":200,\n         \"data\":{\n                    Id:\"string\",\n                    name:\"string\",\n                    category:array,\n                    quantity:number,\n                    description:\"string\",\n                    price:number\n                    created:date,\n                    lastUpdated:date,\n                }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n       \"error\": true,\n       \"message\":no product of name found,\n       \"status\": 200,\n       \"data\": null\n      }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/products.js",
+    "groupTitle": "Read",
+    "name": "GetApiV1EcartViewName"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/shop/show/:id",
+    "title": "get cart by cartId",
+    "version": "0.0.1",
+    "group": "Read",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "cartId",
+            "description": "<p>The id of the cart (cartId) must be passed as url parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on-success:",
+          "content": "{ \n         \"error\":false,\n         \"message\":\"cart Found Sucessfully\",\n         \"status\":200,\n         \"data\":{\n                    itemsId:object(type=array),\n                    cartId:\"string\",\n                    totalItem:number,\n                    totalAmount:number,\n                    lastUpdated:Date\n                }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on-error: ",
+          "content": "\n{\n       \"error\": true,\n       \"message\":no cart of the id found,\n       \"status\": 500,\n       \"data\": null\n      }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cart.js",
+    "groupTitle": "Read",
+    "name": "GetApiV1ShopShowId"
+  }
+] });
